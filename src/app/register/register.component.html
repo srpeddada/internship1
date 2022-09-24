@@ -1,1 +1,57 @@
-<p>register works!</p>
+<div class="app">
+    <div class="bg"></div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <header>
+            <img src="https://cdn.dribbble.com/users/2330950/screenshots/6232237/59_4x.jpg?compress=1&resize=800x600" />
+        </header>
+
+        <div class="inputs">
+            <div class="not" *ngIf="not">
+                <p>*Email already exists</p>
+            </div>
+            <input type="text" name="name" placeholder="username" #name="ngModel"
+                [(ngModel)]="service.selectedRegister.name" [class.is-invalid]="name.invalid && name.touched"
+                required />
+            <small class="text-dark" [class.d-none]="name.valid || name.untouched">*name should contain atleast 2
+                letters</small>
+            <input type="text" name="email" placeholder="email" #email="ngModel"
+                [(ngModel)]="service.selectedRegister.email"
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                [class.is-invalid]="email.invalid && email.touched" required /><small class="text-dark"
+                [class.d-none]="email.valid || email.untouched">*Enter valid email address</small>
+            <input type="password" name="password" placeholder="password" #password="ngModel"
+                [(ngModel)]="service.selectedRegister.password"
+                [class.is-invalid]="password.invalid && password.touched" required />
+            <small class="text-dark" [class.d-none]="password.valid || password.untouched">*Enter a password</small>
+        </div>
+
+        <footer>
+            <div *ngIf="normal">
+                <button class="login" [disabled]="!form.valid" type="submit">
+                    Register
+                </button>
+
+                <p>
+                    Already have an account?
+                    <a routerLink="/login" class="next"
+                        style="font-size: 20px; color: rgb(56, 56, 247); cursor: pointer;">Login</a>
+                </p>
+            </div>
+            <div *ngIf="loading">
+                <div class="container1 col-md-12 d-flex justify-content-center">
+                    <div class="load-3">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="gif" *ngIf="gif">
+                <div class="check-wrap" routerLink="/login"></div>
+
+                <a routerLink="/login" class="next"
+                    style="font-size: 30px; color: rgb(247, 247, 247); cursor: pointer;">Login</a>
+            </div>
+        </footer>
+    </form>
+</div>
