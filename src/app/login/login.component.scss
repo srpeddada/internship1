@@ -72,6 +72,22 @@ header {
   margin: 1em auto;
 }
 
+
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 2em;
+  text-align: center;
+}
+
+footer .next,
+footer p {
+  font-size: 15px;
+  color: white;
+}
+
 form input {
   width: 100%;
   padding: 10px 15px;
@@ -92,19 +108,6 @@ input::placeholder {
   margin-top: -4em;
 }
 
-footer {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding-bottom: 2em;
-  text-align: center;
-}
-footer .next,
-footer p {
-  font-size: 15px;
-  color: white;
-}
 button {
   margin-top: 50px;
   background-color: #fc3565;

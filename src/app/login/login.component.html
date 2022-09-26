@@ -8,17 +8,17 @@
 
         <div class="inputs">
             <div class="not" *ngIf="not">
-                <p>*Email or password incorect</p>
+                <h3>* Incorect email or password</h3>
             </div>
             <input type="text" name="email" placeholder="email" #email="ngModel"
                 [(ngModel)]="service.selcetedData.email"
                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
                 [class.is-invalid]="email.invalid && email.touched" required /><small class="text-dark"
-                [class.d-none]="email.valid || email.untouched">*Enter valid email address</small>
+                [class.d-none]="email.valid || email.untouched">*Please enter valid email address</small>
             <input type="password" name="password" placeholder="password" #password="ngModel"
                 [(ngModel)]="service.selcetedData.password"
                 [class.is-invalid]="password.invalid && password.touched" required />
-            <small class="text-dark" [class.d-none]="password.valid || password.untouched">*Enter a password</small>
+            <small class="text-dark" [class.d-none]="password.valid || password.untouched">*Please enter a password</small>
         </div>
         <br /><br />
         <footer>
@@ -29,7 +29,7 @@
             <p>
                 Don't have an account?
                 <a routerLink="/register" class="next"
-                    style="font-size: 20px; color: rgb(56, 56, 247); cursor: pointer;">Sign Up</a>
+                    style="font-size: 19px; color: rgb(56, 56, 247); cursor: pointer;">Sign Up</a>
             </p>
         </footer>
     </form>
