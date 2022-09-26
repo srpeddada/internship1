@@ -11,12 +11,12 @@
                 <p>*Email or password incorect</p>
             </div>
             <input type="text" name="email" placeholder="email" #email="ngModel"
-                [(ngModel)]="service.selectedRegister.email"
+                [(ngModel)]="service.selcetedData.email"
                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
                 [class.is-invalid]="email.invalid && email.touched" required /><small class="text-dark"
                 [class.d-none]="email.valid || email.untouched">*Enter valid email address</small>
             <input type="password" name="password" placeholder="password" #password="ngModel"
-                [(ngModel)]="service.selectedRegister.password"
+                [(ngModel)]="service.selcetedData.password"
                 [class.is-invalid]="password.invalid && password.touched" required />
             <small class="text-dark" [class.d-none]="password.valid || password.untouched">*Enter a password</small>
         </div>
