@@ -9,8 +9,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  photo;
-  name
+  photo: any;
+  name: any;
   constructor(
      public service: ServiceService,
     public router: Router
@@ -21,13 +21,12 @@ export class HomeComponent implements OnInit {
     if (localStorage.getItem("login") != "true") {
        this.router.navigate(["/login"]);
     }
-   var data = {
-      "email": localStorage.getItem("email")
+   let data = {
+      email: localStorage.getItem("email")
    }
     this.service.getInfo(data).subscribe((res) => {
       
-      var obj = JSON.parse(res.toString())
-      console.log(obj)
+      let obj = JSON.parse(res.toString())
       this.photo = obj.link
       this.name = obj.name
     })
