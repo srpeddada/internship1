@@ -55,6 +55,12 @@ displayStyle = "none";
     });
     form.reset();
   }
+  logout() {
+            localStorage.setItem("email", "");
+         localStorage.setItem("login", "false");
+  
+        this.router.navigate(["/login"]);
+  }
 
 
 }
