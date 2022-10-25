@@ -3,4 +3,5 @@ export class Data{
     email: String;
     password: String;
     link: String;
+    task: String;
 }

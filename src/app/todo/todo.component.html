@@ -1,0 +1,40 @@
+<form #form1="ngForm" (ngSubmit)="onSubmit(form1)">
+<div class="input-group p-5">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Enter Task name</span>
+    </div>
+    <input type="text" class="form-control" type="text" name="task" placeholder="Start typing here!!!" #task="ngModel" [(ngModel)]="service.selcetedData.task"
+                [class.is-invalid]="task.invalid && task.touched" required />
+            <small class="text-dark" [class.d-none]="task.valid || task.untouched">*Please enter a task</small>
+
+<button class="login btn btn-dark" [disabled]="!form1.valid" type="submit">
+    Add Task
+</button>
+</div>
+</form>
+
+<div class="example-container">
+    <h2>To do</h2>
+
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
+        class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+    </div>
+</div>
+
+<div class="example-container">
+    <h2>Done</h2>
+
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
+        class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}} <div (click)="deleteOnClick(item)"><strong>X</strong></div></div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Copyright 2022 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
