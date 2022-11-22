@@ -1,0 +1,200 @@
+
+
+
+    <div class="uploadWrapper">
+        <form #form="ngForm" id="imageUploadForm" enctype="multipart/form-data" class="imageUploadForm">
+            <span class="helpText" id="helpText">Upload an image</span>
+            <input #imageInput1 type='file' name="file" id="file" (change)="processFile(imageInput1)" class="uploadButton"
+                accept="image/*" required />
+            <div id="uploadedImg" class="uploadedImg">
+                <span class="unveil"></span>
+            </div>
+            <span class="pickFile">
+                <a href="#" class="pickFileButton">Pick file</a>
+            </span>
+            <!-- <div class="row">
+                <button
+                  type="submit"
+                  class="btn btn-light m-2"
+                  [disabled]="!form.valid"
+                >
+                  Update
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger m-2"
+                  data-dismiss="modal"
+                >
+                  close
+                </button>
+              </div> -->
+        </form>
+    </div>
+
+
+
+
+
+<section class="blog shadow">
+    <br /><br />
+    
+   
+    <h1 style="color: white; font-size: 25px;" *ngIf="imgn" class="text-center">Your photos will be displayed here</h1>
+    <p style="color: white; margin-bottom: 100px;" *ngIf="imgn" class="text-center">Try adding a branch</p>
+    <br /><br />
+    <div class="machine-wrap" *ngIf="imgn">
+        <div class="machine">
+            <div class="machine-roof">
+                <div class="machine-silencer">
+                    <div class="machine-smoke"></div>
+                </div>
+            </div>
+            <div class="machine-main">
+                <div class="machine-body"></div>
+                <div class="machine-back"></div>
+                <div class="machine-front"></div>
+            </div>
+        </div>
+        <div class="road">
+            <div class="mud-wrap clearfix">
+                <div class="mud"></div>
+                <div class="mud"></div>
+                <div class="mud"></div>
+                <div class="mud"></div>
+            </div>
+        </div>
+    </div>
+        <div class="container">
+            <!-- header of section -->
+            <div class="blog-head text-center">
+                <h2>Gallery</h2>
+                <h6>Your uploded photos</h6>
+            </div>
+   
+        <form #form1="ngForm" (ngSubmit)="onSubmit(form1)">
+            <div class="input-group mb-3 mt-4">
+        <input type="text" class="form-control" placeholder="Type a label" 
+            name="search"
+            #search="ngModel"
+            [(ngModel)]="service.selcetedData.search"
+            required
+            >
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" [disabled]="!form1.valid" type="submit">Submit</button>
+        </div>
+        </div>
+        </form>
+   
+            <!-- blog items -->
+            <div class="row">
+                <!-- <div class="col-md-6 col-lg-4">
+                    <div class="item animated wow fadeIn">
+                        <img src="https://i.ibb.co/CKNmhMX/blog1.jpg" alt="">
+                        <div class="overlay top-overlay">
+                            <div class="text">Top Overlay</div>
+                        </div>
+                    </div>
+                    <span class="badge badge-secondary">Secondary</span> <span class="badge badge-secondary">Secondary</span>
+                </div> -->
+                <!-- <div class="col-md-6 col-lg-4">
+                    <div class="item animated wow fadeIn">
+                        <img src="https://i.ibb.co/m5yGbdR/blog2.jpg" alt="">
+                        <div class="overlay bottom-overlay">
+                            <div class="text">Bottom Overlay</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="item animated wow fadeIn">
+                        <img src="https://i.ibb.co/YXV3zmh/blog3.jpg" alt="">
+                        <div class="overlay right-overlay">
+                            <div class="text">Right Overlay</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="item animated wow fadeIn">
+                        <img src="https://i.ibb.co/CKNmhMX/blog1.jpg" alt="">
+                        <div class="overlay left-overlay">
+                            <div class="text">Left Overlay</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="item animated wow fadeIn">
+                        <img src="https://i.ibb.co/m5yGbdR/blog2.jpg" alt="">
+                        <div class="overlay fade-overlay">
+                            <div class="text">Fade in overlay</div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div  *ngFor="let item of photosData" class="col-md-6 col-lg-4">
+                    <div class="item animated wow fadeIn">
+                        <img src="{{item.img}}" alt="">
+                        <div class="overlay title-overlay">
+                            <div class="text" (click)="deleteImg(item._id)">Delete Image</div>
+                        </div>
+                    </div>
+                    <span class="badge badge-secondary">#Secondary</span><span class="badge badge-secondary">#Secondary</span>
+                </div>
+    
+            </div>
+        </div>
+
+   
+    <!--model end-->
+    <!--modal -->
+
+                    <!-- 16:9 aspect ratio -->
+                    <!-- <div class="alert alert-success" role="alert" *ngIf="photo">
+         Logo edited succesfully.. !
+       </div> -->
+                  
+                    <!-- <form #form="ngForm" >
+         <div class="form-group">
+           <label for="exampleInputEmail1">Update your logo</label>
+           <textarea
+             name="link"
+             #link="ngModel"
+             type="hidden"
+             class="form-control"
+             [(ngModel)]="service.selectedReview.review"
+             placeholder="Paste your logo link here..."
+             style="display:none;"
+             required ></textarea>
+           <small
+             class="text-danger"
+             [class.d-none]="link.valid || link.untouched"
+             >*Please fill this field</small
+           >
+         </div>
+        
+         <div class="row">
+           <button
+             type="submit"
+             class="btn btn-light m-2"
+             [disabled]="!form.valid"
+           >
+             Update
+           </button>
+           <button
+             type="button"
+             class="btn btn-danger m-2"
+             data-dismiss="modal"
+           >
+             close
+           </button>
+         </div>
+        </form> -->
+
+                    <!-- <a
+          class="btn"
+          data-dismiss="modal"
+          style="margin-left: 20px; margin-bottom: 20px; color: white"
+          >Close</a
+        > -->
+               
+  
+</section>
+

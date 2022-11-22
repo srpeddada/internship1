@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    TodoComponent
+    TodoComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

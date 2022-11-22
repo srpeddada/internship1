@@ -26,6 +26,12 @@ export class TodoComponent implements OnInit {
         }
       }
     })
+
+    const abc = "abc"
+    const def = 123
+    const efg = abc + def
+    console.log(abc + def)
+    console.log(efg)
   }
 
   onSubmit(form: NgForm) {
@@ -58,6 +64,7 @@ export class TodoComponent implements OnInit {
       var data = {
         todolist: this.todo,
         donelist: this.done
+
       }
       this.service.updateList(data).subscribe(res => {
         console.log(res)
